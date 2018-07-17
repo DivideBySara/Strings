@@ -92,7 +92,33 @@ namespace Strings
             bool hasSum = CheckSumOf3Items(arr, c);
             Console.WriteLine($"\nThree array elements may add to the constant: {hasSum}");
 
+            // Q #11: 
+            Console.WriteLine("\nQ #11 Given the string \"This is a string\", reverse each word --> \"sihT si a gnirts\".");
+            string str = "This is a string";
+            str = ReverseWords(str);
+            Console.WriteLine("\n" + str);
+
             Console.ReadKey();
+        }
+
+        private static string ReverseWords(string str)
+        {
+            string[] words = str.Split(' ');
+            StringBuilder sb;
+
+            for (int i = 0; i < words.Length; ++i)
+            {
+                sb = new StringBuilder();
+
+                for (int j = words[i].Length - 1; j >=0; --j)
+                {
+                    sb.Append(words[i][j]);
+                }
+
+                words[i] = sb.ToString();
+            }
+
+            return string.Join(" ", words);
         }
 
         // Shupa's question
